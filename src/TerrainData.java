@@ -1,3 +1,6 @@
+import java.sql.Array;
+import java.util.ArrayList;
+
 public class TerrainData {
     private int[][] terrainData;
 
@@ -18,13 +21,14 @@ public class TerrainData {
     }
 
     private boolean isLocValid(Location loc) {
-        if(loc == null)
+        if(loc == null) {
             return false;
+        }
         return loc.getRow() >= 0 && loc.getCol() >= 0 &&
                 loc.getRow() < terrainData.length && loc.getCol() < terrainData[0].length;
     }
 
-    private boolean isShearDrop(int row, int col) {
+    public boolean isShearDrop(int row, int col) {
         if(isLocValid(new Location(row -1, col))) {
             int dif = terrainData[row][col] - terrainData[row - 1][col];
             if(dif >= 5) {
@@ -39,7 +43,7 @@ public class TerrainData {
         }
 
         if(isLocValid(new Location(row, col - 1))) {
-            int dif = terrainData[row][col] - terrainData[row - 1][col - 1];
+            int dif = terrainData[row][col] - terrainData[row][col - 1];
             if(dif >= 5) {
                 return true;
             }
@@ -54,4 +58,19 @@ public class TerrainData {
 
         return false;
     }
+
+
+    public ArrayList<Location> getShearDrops() {
+        ArrayList<Location> locs = new ArrayList<>();
+        for(int i = 0; i < terrainData.length; i++) {
+            for(int j = 0; j < terrainData[i].length; j++) {
+                if(isShearDrop(i, j)) {
+                    locs.add(new Location(i, j));
+                }
+
+            }
+        }
+        return locs;
+    }
+
 }

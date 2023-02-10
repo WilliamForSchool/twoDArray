@@ -8,6 +8,7 @@ public class Main {
                 {10, 8, 9, 9, 8, 9},
                 {10, 11, 11, 11, 10, 10}};
         TerrainData t = new TerrainData(data);
-        System.out.print(t.countSquaresBelowSeaLeve());
+        System.out.println(t.countSquaresBelowSeaLeve());
+        System.out.println(t.getShearDrops());
     }
 }
