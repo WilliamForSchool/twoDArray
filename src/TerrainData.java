@@ -27,10 +27,30 @@ public class TerrainData {
     private boolean isShearDrop(int row, int col) {
         if(isLocValid(new Location(row -1, col))) {
             int dif = terrainData[row][col] - terrainData[row - 1][col];
+            if(dif >= 5) {
+                return true;
+            }
+        }
+        if(isLocValid(new Location(row +1, col))) {
+            int dif = terrainData[row][col] - terrainData[row + 1][col];
+            if(dif >= 5) {
+                return true;
+            }
         }
 
+        if(isLocValid(new Location(row, col - 1))) {
+            int dif = terrainData[row][col] - terrainData[row - 1][col - 1];
+            if(dif >= 5) {
+                return true;
+            }
+        }
 
-
+        if(isLocValid(new Location(row, col +1))) {
+            int dif = terrainData[row][col] - terrainData[row][col + 1];
+            if(dif >= 5) {
+                return true;
+            }
+        }
 
         return false;
     }
