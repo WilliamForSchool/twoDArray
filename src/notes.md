@@ -62,7 +62,7 @@ public int[] getColumn(int arr[][], int col) {
 }
 ```
 
-## For loop 
+## For Loop 
 ```java
 int[][] arr = new int[10][10];
 
