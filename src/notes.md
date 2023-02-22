@@ -30,9 +30,8 @@ z[3][5] = new Student("John");
 z[3][5].setName("Jack");
 ```
 
+## Length
 ```java
-// Length
-
 a.length; //number of rows;
 b.length; //number of rows;
 c.length; //number of rows;
@@ -44,17 +43,16 @@ a[0].length //number of columns in row 0;
 // you want to know the number of columns
 ```
 
+## Get Entire Row
 ```java
-// Getting an entire row
 a[0]; //this is an entire row
 
 int temp[] = a[0]; //store row 0 in temp
 // cannot easily do the same with an entire column
 ```
 
+## Get Entire Column
 ```java
-// Get entire column
-
 public int[] getColumn(int arr[][], int col) {
     int[] colArr = new int[arr.length];
     for(int i = 0; i < arr.length; i++) {
@@ -63,3 +61,15 @@ public int[] getColumn(int arr[][], int col) {
     return colArr;
 }
 ```
+
+## For loop 
+```java
+int[][] arr = new int[10][10];
+
+for(int row = 0; row < arr.length; row++) {
+    for(int col = 0; col < arr[0].length; col++) {
+        int value = arr[row][col];
+    }
+}
+```
+
