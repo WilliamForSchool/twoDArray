@@ -43,3 +43,23 @@ a[0].length //number of columns in row 0;
 // Therefore, it is valid to assume a[0].length can be used everytime
 // you want to know the number of columns
 ```
+
+```java
+// Getting an entire row
+a[0]; //this is an entire row
+
+int temp[] = a[0]; //store row 0 in temp
+// cannot easily do the same with an entire column
+```
+
+```java
+// Get entire column
+
+public int[] getColumn(int arr[][], int col) {
+    int[] colArr = new int[arr.length];
+    for(int i = 0; i < arr.length; i++) {
+        colArr[i] = arr[i][col];
+    }
+    return colArr;
+}
+```
